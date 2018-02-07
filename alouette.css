@@ -1,6 +1,8 @@
 body {
 	font-family: verdana;
-	background-color: rgba(0,0,255,.1);
+	background-color: rgb(193, 193, 255);
+	background-image: url(fond_oiseaux.svg);
+	background-size: 64px;
 	color:rgb(0,0,153);
 }
 h1 {
@@ -12,7 +14,7 @@ div.chanson {
 	font-size:24px;
 }
 div.strophe {
-	background-color: rgba(0,0,255,.1);
+	background-color: rgb(217, 217, 255);
 	padding:1em;
 	border-radius: 1em;
 	margin:1em 0;

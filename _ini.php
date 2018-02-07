@@ -1,8 +1,8 @@
 <?php
-// Projet : allouette
+// Projet : alouette
 $ini = array (
 	//Le titre qui s'affiche dans la liste
-	'titre' => 'Allouette, gentille Alouette',
+	'titre' => 'Alouette, gentille Alouette',
 
 	//Categories sous forme "Catégorie/Sous-Catégorie/..."
 	'categorie' => 'Exemples, exercices/Cours 03',

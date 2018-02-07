@@ -36,7 +36,7 @@ $affichage .= '</div>';
 <html lang="fr">
 <head>
 <meta charset="utf-8" />
-<link rel="stylesheet" type="text/css" href="alouette.css" />
+<link rel="stylesheet" href="alouette.css" />
 <title><?php echo $titre ?></title>
 </head>
 <body>

@@ -8,7 +8,7 @@ include "alouette.inc.php";
 <html lang="fr">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="stylesheet" type="text/css" href="alouette.css" />
+		<link rel="stylesheet" href="alouette.css" />
 		<title><?php echo $oiseau; ?>, <?php echo $qualite; ?> <?php echo $oiseau; ?></title>
 	</head>
 	<body>
