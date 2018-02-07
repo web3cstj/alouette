@@ -16,6 +16,7 @@ $affichage .= Alouette::chanson($oiseau, $qualite, $action, $membres);
 <title><?php echo $titre ?></title>
 </head>
 <body>
+<?php include "menu.inc.php"; ?>
 <?php echo $affichage ?>
 <?php include_once "../source.php"; ?></body>
 </html>

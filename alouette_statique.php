@@ -6,6 +6,7 @@
 		<title>Alouette, gentille Alouette</title>
 	</head>
 	<body>
+		<?php include "menu.inc.php"; ?>
 		<h1>Alouette, gentille Alouette</h1>
 		<div class="chanson">
 			<div class="strophe">
@@ -217,5 +218,5 @@
 				<div>Aaaah . . . </div>
 			</div>
 		</div>
-	</body>
+	<?php include_once "../source.php"; ?></body>
 </html>

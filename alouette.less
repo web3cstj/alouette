@@ -1,0 +1,58 @@
+body {
+	font-family: verdana;
+	background-color: rgb(193, 193, 255);
+	background-image: url(fond_oiseaux.svg);
+	background-size: 64px;
+	color:rgb(0,0,153);
+}
+nav {
+	background-color: aliceblue;
+	display: flex;
+	justify-content: center;
+	line-height: 1;
+	font-size: smaller;
+	height: 3em;
+	ul {
+		width: 80ch;
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		display: flex;
+		li {
+			background-color: rgba(0,0,255,.1);
+			flex: 1 0 0;
+			margin: 1px;
+			display: flex;
+			a {
+				flex: 1 1 0;
+				color: inherit;
+				text-decoration: inherit;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				text-align: center;
+			}
+		}
+	}
+}
+h1 {
+	text-align: center;
+}
+div.chanson {
+	width:17em;
+	margin:0 auto;
+	font-size:24px;
+}
+div.strophe {
+	background-color: rgb(217, 217, 255);
+	padding:1em;
+	border-radius: 1em;
+	margin:1em 0;
+	box-shadow: 1px 1px 3px rgba(0,0,0,.2) inset;
+}
+div.refrain {
+	font-weight: bold;
+}
+div.reponse {
+	font-family: cursive;
+}

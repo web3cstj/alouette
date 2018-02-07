@@ -18,8 +18,9 @@ alouette-fonction : Une version presque optimale où l'on utilise une classe et
     des méthodes statiques. Ce niveau de normalisation est exagéré pour un si petit
     projet, mais on apprend à faire de gros sites...
 */
+include "alouette_statique.php";
 //include "alouette_avec_echos.php";
-include "alouette_avec_variables.php";
+//include "alouette_avec_variables.php";
 //include "alouette_avec_fonctions.php";
 //include "alouette_avec_classe.php";
 ?>

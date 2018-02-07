@@ -12,6 +12,7 @@ include "alouette.inc.php";
 		<title><?php echo $oiseau; ?>, <?php echo $qualite; ?> <?php echo $oiseau; ?></title>
 	</head>
 	<body>
+		<?php include "menu.inc.php"; ?>
 		<h1><?php echo $oiseau; ?>, <?php echo $qualite; ?> <?php echo $oiseau; ?></h1>
 		<div class="chanson">
 			<?php $membres_dits = array(); ?>
