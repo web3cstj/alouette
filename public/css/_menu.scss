@@ -1,0 +1,33 @@
+nav {
+	background-color: hsl(var(--hue), 70%, 70%);
+	display: flex;
+	justify-content: center;
+	line-height: 1;
+	font-size: smaller;
+	height: 3em;
+	ul {
+		width: 80ch;
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		display: flex;
+		li {
+			&:hover {
+				background-color: hsl(var(--hue), 70%, 30%);
+				color: white;
+			}
+			flex: 1 0 0;
+			margin: 1px;
+			display: flex;
+			a {
+				flex: 1 1 0;
+				color: inherit;
+				text-decoration: inherit;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				text-align: center;
+			}
+		}
+	}
+}

@@ -1,9 +1,10 @@
-<?php
-/*
+# Exercice Alouette
+
 Le but de cette page est de produire une chanson folklorique (Alouette) à partir
 de données se trouvant dans les variables d'un fichier d'inclusion.
 
-alouette.html : La version statique de la page.
+public/index.html : La version figée de la page.
+
 
 alouette-echos.php : La version pas très efficace où l'on fait une multitude de
     echo dans la page et les boucles sont directement dans le HTML

@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css?family=Great+Vibes|Love+Ya+Like+A+Sister|Montserrat+Alternates:400,700&display=swap');
+
+@import "_variables.scss";
+html {
+	height: 100%;
+}
+body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+    font-family: 'Montserrat Alternates', sans-serif;
+	
+	background-color: hsl(var(--hue), 100%, 30%);
+	background-image: url(../images/fond_oiseaux.svg);
+	background-size: 64px;
+	color:rgb(0,0,153);
+}
+@import "_menu.scss";
+#app {
+	display: flex;
+	flex-direction: column;
+	& > header, & > footer {
+		background-color: hsl(var(--hue), 100%, 30%);
+		color: white;
+	}
+	& > header {
+		order: -10;
+	}
+	& > nav {
+		order: -1;
+	}
+	& > footer {
+		order: 10;
+		display: flex;
+		justify-content: space-around;
+		padding: 0.5em;
+		border-top: 2px solid hsl(var(--hue), 70%, 70%);
+	}
+}
+#app {
+	& > header {
+		font-family: 'Love Ya Like A Sister', cursive;
+		font-size: 2cm;
+		text-align: center;
+	}
+}
+div.body {
+	h1 {
+		color: white;
+		text-align: center;
+		font-size: 3em;
+	}
+	div.chanson {
+		width:17em;
+		margin:0 auto;
+		font-size:24px;
+	}
+	div.strophe {
+		background-color: hsl(var(--hue), 100%, 90%);
+		padding: 1em;
+		border-radius: .5em;
+		margin: 1em 0;
+	}
+	div.refrain {
+		font-weight: bold;
+	}
+	div.reponse {
+		font-weight: normal;
+		font-family: 'Great Vibes', cursive;
+	}
+}

@@ -9,17 +9,6 @@ class Alouette {
 	static public function titre($oiseau, $qualite) {
 		return $oiseau.', '.$qualite.' '.$oiseau;
 	}
-	/** Méthode strophe
-	 * Retourne une strophe au complet
-	 * @param string $oiseau - Le nom de l'oiseau (Alouette)
-	 * @param string $qualite - La qualité que l'on donne à l'oiseau (gentille)
-	 * @param string $action - L'action que l'on fera subire à l'oiseau (plumerai)
-	 * @param string $membre - Le membre (la tête)
-	 * @param array $membresDits - Les membres à énumérer
-	 * @uses refrain
-	 * @uses couplet
-	 * @return string
-	 */
 	/** Méthode chanson
 	 * Retourne la chanson au complet dans un div.chanson
 	 * @param string $oiseau - Le nom de l'oiseau (Alouette)
@@ -134,4 +123,3 @@ class Alouette {
 		return $resultat;
 	}
 }
-?>
