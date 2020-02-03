@@ -78,6 +78,7 @@ nav ul li a {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  min-height: 100%;
 }
 #app > header, #app > footer {
   background-color: hsl(var(--hue), 100%, 30%);
@@ -112,6 +113,11 @@ nav ul li a {
   text-align: center;
 }
 
+div.body {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 0px;
+          flex: 1 0 0;
+}
 div.body h1 {
   color: white;
   text-align: center;
