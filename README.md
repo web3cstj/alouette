@@ -3,25 +3,29 @@
 Le but de cette page est de produire une chanson folklorique (Alouette) à partir
 de données se trouvant dans les variables d'un fichier d'inclusion.
 
-public/index.html : La version figée de la page.
+## Fichiers et directives
+public/index.html : La version figée de la page. 
+1. Changer l'extension pour `php`
+1. Au début du document, faire l'inclusion des fichiers `donnees.inc.php` et `Alouette.php` (Donner le bon chemin)
+1. Dans le `body`, remplacer le `header`, le `footer` et le `nav` par l'inclusion de leurs fichiers respectifs.
 
+## Alouette.php
+1. Créer toutes les méthodes avec les bons paramètres tels que décrit dans le commentaire.
+2. Dans chaque méthode, ajouter le `html` provenant du document initial `index.html` en créant des concaténations. 
+    - Commencer par les méthodes qui n'ont pas la mention `@uses`. 
+    - Ne pas se soucier des paramètres pour l'instant.
+    - Ne garder qu'une seule itération lorsqu'il y a répétition (donc boucle).
+    - Tester chaque méthode à la fin du fichier en ajoutent une commande d'affichage et visionner directement le fichier `Alouette.php`. Par exemple: 
+        ```php 
+        echo Alouette::titre('Pigeon', 'constipé'); // afficherait "Alouette, gentille alouette"
+        ```
+    - Ajouter les variables (paramètres) simples par concaténation.
+    - Tester: 
+        ```php 
+        echo Alouette::titre('Pigeon', 'constipé'); // afficherait "Pigeon, constipé pigeon"
+        ```
+    - Ajouter les appels aux méthodes (`@uses`)
+    - Ajouter les boucles et la mécanique générale.
 
-alouette-echos.php : La version pas très efficace où l'on fait une multitude de
-    echo dans la page et les boucles sont directement dans le HTML
-
-alouette-variables : Une version plus normalisée où les éléments répétitifs sont
-    mis dans des variables et l'affichage se fait une seule fois dans la page
-
-alouette-fonction : Une version pas encore optimale où l'on utilise des fonction.
-    notamment la fonction appel_reponse, qui est beaucoup utilisée.
-
-alouette-fonction : Une version presque optimale où l'on utilise une classe et
-    des méthodes statiques. Ce niveau de normalisation est exagéré pour un si petit
-    projet, mais on apprend à faire de gros sites...
-*/
-include "alouette_statique.php";
-//include "alouette_avec_echos.php";
-//include "alouette_avec_variables.php";
-//include "alouette_avec_fonctions.php";
-//include "alouette_avec_classe.php";
-?>
+## donnees.inc.php
+1. S'amuser à changer les valeurs.
