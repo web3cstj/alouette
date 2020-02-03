@@ -20,12 +20,24 @@ class Alouette {
 	 */
 	static public function chanson($oiseau, $qualite, $action, $membres) {
 		$resultat = '';
-		$membresDits = array();
 		$resultat .= '<div class="chanson">';
-		foreach ($membres as $membre) {
-			array_unshift($membresDits, $membre);
-			$resultat .= Alouette::strophe($oiseau, $qualite, $action, $membre, $membresDits);
-		}
+		$resultat .= '<div class="strophe">';
+		$resultat .= '<div class="refrain">';
+		$resultat .= '<div class="appel">';
+		$resultat .= '<div>Alouette, gentille Alouette</div>';
+		$resultat .= '<div>Alouette, je te plumerai.</div>';
+		$resultat .= '</div>';
+		$resultat .= '<div class="reponse">';
+		$resultat .= '<div>Alouette, gentille Alouette</div>';
+		$resultat .= '<div>Alouette, je te plumerai.</div>';
+		$resultat .= '</div>';
+		$resultat .= '</div>';
+		$resultat .= '<div class="appel">Je te plumerai le dos</div>';
+		$resultat .= '<div class="reponse">Je te plumerai le dos</div>';
+		$resultat .= '<div class="appel">Et le dos</div>';
+		$resultat .= '<div class="reponse">Et le dos</div>';
+		$resultat .= '<div>Aaaah . . . </div>';
+		$resultat .= '</div>';
 		$resultat .= '</div>';
 		return $resultat;
 	}
@@ -43,8 +55,21 @@ class Alouette {
 	static public function strophe($oiseau, $qualite, $action, $membre, $membresDits) {
 		$resultat = '';
 		$resultat .= '<div class="strophe">';
-		$resultat .= self::refrain($oiseau, $qualite, $action);
-		$resultat .= self::couplet($oiseau, $action, $membre, $membresDits);
+		$resultat .= '<div class="refrain">';
+		$resultat .= '<div class="appel">';
+		$resultat .= '<div>Alouette, gentille Alouette</div>';
+		$resultat .= '<div>Alouette, je te plumerai.</div>';
+		$resultat .= '</div>';
+		$resultat .= '<div class="reponse">';
+		$resultat .= '<div>Alouette, gentille Alouette</div>';
+		$resultat .= '<div>Alouette, je te plumerai.</div>';
+		$resultat .= '</div>';
+		$resultat .= '</div>';
+		$resultat .= '<div class="appel">Je te plumerai le dos</div>';
+		$resultat .= '<div class="reponse">Je te plumerai le dos</div>';
+		$resultat .= '<div class="appel">Et le dos</div>';
+		$resultat .= '<div class="reponse">Et le dos</div>';
+		$resultat .= '<div>Aaaah . . . </div>';
 		$resultat .= '</div>';
 		return $resultat;
 	}
@@ -60,10 +85,16 @@ class Alouette {
 	 */
 	static public function refrain($oiseau, $qualite, $action) {
 		$resultat = '';
-		$resultat .= '<div>'.self::titre($oiseau, $qualite).'</div>';
-		$resultat .= '<div>'.$oiseau.', je '.$action.'.'.'</div>';
-		$resultat = self::appelReponse($resultat);
-		$resultat = '<div class="refrain">'.$resultat.'</div>';
+		$resultat .= '<div class="refrain">';
+		$resultat .= '<div class="appel">';
+		$resultat .= '<div>Alouette, gentille Alouette</div>';
+		$resultat .= '<div>Alouette, je te plumerai.</div>';
+		$resultat .= '</div>';
+		$resultat .= '<div class="reponse">';
+		$resultat .= '<div>Alouette, gentille Alouette</div>';
+		$resultat .= '<div>Alouette, je te plumerai.</div>';
+		$resultat .= '</div>';
+		$resultat .= '</div>';
 		return $resultat;
 	}
 	/** Méthode couplet
@@ -80,9 +111,10 @@ class Alouette {
 	 */
 	static public function couplet($oiseau, $action, $membre, $membresDits) {
 		$resultat = '';
-		$resultat .= self::actionMembre($action, $membre);
-		$resultat .= self::enumMembres($membresDits);
-		$resultat .= self::appelReponse($oiseau);
+		$resultat .= '<div class="appel">Je te plumerai le dos</div>';
+		$resultat .= '<div class="reponse">Je te plumerai le dos</div>';
+		$resultat .= '<div class="appel">Et le dos</div>';
+		$resultat .= '<div class="reponse">Et le dos</div>';
 		$resultat .= '<div>Aaaah . . . </div>';
 		return $resultat;
 	}
@@ -94,8 +126,8 @@ class Alouette {
 	 */
 	static public function appelReponse($phrase) {
 		$resultat = '';
-		$resultat .= '<div class="appel">'.$phrase.'</div>';
-		$resultat .= '<div class="reponse">'.$phrase.'</div>';
+		$resultat .= '<div class="appel">Et le dos</div>';
+		$resultat .= '<div class="reponse">Et le dos</div>';
 		return $resultat;
 	}
 	/** Méthode enumMembres
@@ -105,11 +137,6 @@ class Alouette {
 	 * @return string
 	 */
 	static public function enumMembres($membres) {
-		$resultat = '';
-		foreach ($membres as $membre) {
-			$resultat .= self::appelReponse('Et '.$membre);
-		}
-		return $resultat;
 	}
 	/** Méthode actionMembre
 	 * Génère la menace faite à l'oiseau sur son membre.
@@ -119,7 +146,8 @@ class Alouette {
 	 * @return string
 	 */
 	static public function actionMembre($action, $membre) {
-		$resultat = self::appelReponse('Je '.$action.' '.$membre);
+		$resultat .= '<div class="appel">Je te plumerai le dos</div>';
+		$resultat .= '<div class="reponse">Je te plumerai le dos</div>';
 		return $resultat;
 	}
 }
