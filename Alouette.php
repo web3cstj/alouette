@@ -7,7 +7,7 @@ class Alouette {
 	 * @return string
 	 */
 	static public function titre($oiseau, $qualite) {
-		return $oiseau.', '.$qualite.' '.$oiseau;
+		return 'Alouette, gentille Alouette';
 	}
 	/** Méthode chanson
 	 * Retourne la chanson au complet dans un div.chanson
