@@ -54,7 +54,7 @@ nav ul li {
   display: -ms-flexbox;
   display: flex;
 }
-nav ul li:hover {
+nav ul li:hover, nav ul li.courant {
   -webkit-transition-duration: 0.1s;
           transition-duration: 0.1s;
   background-color: hsl(var(--hue), 70%, 30%);
@@ -126,6 +126,15 @@ nav ul li a {
   text-align: center;
 }
 
+div.body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
 div.body h1 {
   color: white;
   text-align: center;
@@ -149,3 +158,24 @@ div.body div.reponse {
   font-weight: normal;
   font-family: "Great Vibes", cursive;
 }
+
+form {
+  background-color: hsl(var(--hue), 100%, 90%);
+  padding: 1em;
+  border-radius: 0.5em;
+  margin: 1em 0;
+  display: grid;
+  grid-template-columns: -webkit-min-content 1fr;
+  grid-template-columns: min-content 1fr;
+  align-self: center;
+  grid-gap: 1em;
+}
+form > div {
+  display: contents;
+}
+form input[type=submit] {
+  align-self: center;
+  justify-self: center;
+  grid-column: span 2;
+}
+/*# sourceMappingURL=to.css.map */

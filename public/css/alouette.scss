@@ -1,6 +1,6 @@
+@use "_variables.scss";
 @import url('https://fonts.googleapis.com/css?family=Great+Vibes|Love+Ya+Like+A+Sister|Montserrat+Alternates:400,700&display=swap');
 
-@import "_variables.scss";
 html {
 	height: 100%;
 }
@@ -48,7 +48,15 @@ body {
 		text-align: center;
 	}
 }
+@mixin cadre {
+	background-color: hsl(var(--hue), 100%, 90%);
+	padding: 1em;
+	border-radius: .5em;
+	margin: 1em 0;
+}
 div.body {
+	display: flex;
+	flex-direction: column;
 	h1 {
 		color: white;
 		text-align: center;
@@ -60,10 +68,7 @@ div.body {
 		font-size:24px;
 	}
 	div.strophe {
-		background-color: hsl(var(--hue), 100%, 90%);
-		padding: 1em;
-		border-radius: .5em;
-		margin: 1em 0;
+		@include cadre;
 	}
 	div.refrain {
 		font-weight: bold;
@@ -73,3 +78,18 @@ div.body {
 		font-family: 'Great Vibes', cursive;
 	}
 }
+ form {
+	 @include cadre;
+	 display: grid;
+	 grid-template-columns: min-content 1fr;
+	 align-self: center;
+	 grid-gap: 1em;
+	 & > div {
+		 display: contents;
+	 }
+	 input[type=submit] {
+		 align-self: center;
+		 justify-self: center;
+		grid-column: span 2;
+	 }
+ }

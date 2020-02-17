@@ -122,4 +122,33 @@ class Alouette {
 		$resultat = self::appelReponse('Je '.$action.' '.$membre);
 		return $resultat;
 	}
+	static public function form($donnees) {
+		$resultat = '';
+		$resultat .= '<form action="perso.php" action="get">';
+		$resultat .= '<div class="champ">';
+		$resultat .= '<label for="oiseau">Oiseau</label>';
+		$resultat .= '<input type="text" name="oiseau" id="oiseau" value="'.$donnees['oiseau'].'"/>';
+		$resultat .= '</div>';
+		$resultat .= '<div class="champ">';
+		$resultat .= '<label for="qualite">Qualité</label>';
+		$resultat .= '<input type="text" name="qualite" id="qualite" value="'.$donnees['qualite'].'"/>';
+		$resultat .= '</div>';
+		$resultat .= '<div class="champ">';
+		$resultat .= '<label for="action">Action</label>';
+		$resultat .= '<input type="text" name="action" id="action" value="'.$donnees['action'].'"/>';
+		$resultat .= '</div>';
+		$resultat .= '<div class="champ">';
+		$resultat .= '<label for="membres">Membres</label>';
+		// $membres = '';
+		// foreach($donnees['membres'] as $id => $membre) {
+		// 	$membres .= $membre."\r\n";
+		// }
+		$membres = implode("\r\n", $donnees['membres']);
+		$resultat .= '<textarea name="membres" id="membres" cols="20" rows="10">'.$membres.'</textarea>';
+		$resultat .= '</div>';
+		$resultat .= '<div class="submit"><input type="submit" value="Composer"/></div>';
+		$resultat .= '</form>';
+		return $resultat;
+	}
+
 }
