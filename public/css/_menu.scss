@@ -12,7 +12,12 @@ nav {
 		padding: 0;
 		display: flex;
 		li {
+			transition-duration: .3s;
+			transition-timing-function: ease-in, ease-out;
+			transition-property: background-color, color;
+			
 			&:hover {
+				transition-duration: .1s;
 				background-color: hsl(var(--hue), 70%, 30%);
 				color: white;
 			}
