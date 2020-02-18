@@ -1,12 +1,7 @@
 <?php
 include "../donnees.inc.php";
 include "../Alouette.php";
-$donnees = [
-	'oiseau' => $oiseau,
-	'qualite' => $qualite,
-	'action' => $action,
-	'membres' => $membres,
-];
+$chanson = new Alouette($oiseau, $qualite, $action, $membres);
 ?><!DOCTYPE html>
 <html lang="fr">
 	<head>
@@ -21,7 +16,7 @@ $donnees = [
             <?php include "../menu.inc.php"; ?>
     		<div class="body">
 				<h1>Composer ma chanson</h1>
-				<?php echo Alouette::form($donnees); ?>
+				<?php echo $chanson->form(); ?>
             </div>
         </div>
 	</body>
