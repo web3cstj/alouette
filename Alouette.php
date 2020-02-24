@@ -122,9 +122,9 @@ class Alouette {
 		$resultat = self::appelReponse('Je '.$action.' '.$membre);
 		return $resultat;
 	}
-	static public function form($donnees) {
+	static public function form($donnees, $method="get", $action="") {
 		$resultat = '';
-		$resultat .= '<form action="perso.php" action="get">';
+		$resultat .= '<form action="'.$action.'" method="'.$method.'">';
 		$resultat .= '<div class="champ">';
 		$resultat .= '<label for="oiseau">Oiseau</label>';
 		$resultat .= '<input type="text" name="oiseau" id="oiseau" value="'.$donnees['oiseau'].'"/>';
@@ -141,14 +141,17 @@ class Alouette {
 		$resultat .= '<label for="membres">Membres</label>';
 		// $membres = '';
 		// foreach($donnees['membres'] as $id => $membre) {
-		// 	$membres .= $membre."\r\n";
-		// }
-		$membres = implode("\r\n", $donnees['membres']);
-		$resultat .= '<textarea name="membres" id="membres" cols="20" rows="10">'.$membres.'</textarea>';
-		$resultat .= '</div>';
-		$resultat .= '<div class="submit"><input type="submit" value="Composer"/></div>';
-		$resultat .= '</form>';
-		return $resultat;
-	}
+			// 	$membres .= $membre."\r\n";
+			// }
+			$membres = implode("\r\n", $donnees['membres']);
+			$resultat .= '<textarea name="membres" id="membres" cols="20" rows="10">'.$membres.'</textarea>';
+			$resultat .= '</div>';
+			$resultat .= '<div class="submit">';
+			$resultat .= '<input type="hidden" name="composer"/>';
+			$resultat .= '<input type="submit" value="Composer"/>';
+			$resultat .= '</div>';
+			$resultat .= '</form>';
+			return $resultat;
+		}
 
 }
