@@ -1,13 +1,26 @@
 <?php
 class Alouette {
+	private $oiseau = "";
+	private $qualite = "";
+	private $action = "";
+	private $membres = [];
+	public function __construct($oiseau, $qualite, $action, $membres) {
+		$this->oiseau = $oiseau;
+		$this->qualite = $qualite;
+		$this->action = $action;
+		if (is_string($membres)) {
+			$membres = explode("\r\n", $membres);
+		}
+		$this->membres = $membres;
+	} 
 	/** Méthode titre
 	 * Retourne le titre tel qu'affiché dans le head et le h1 de la page
 	 * @param string $oiseau - Le nom de l'oiseau (Alouette)
 	 * @param string $qualite - La qualité que l'on donne à l'oiseau (gentille)
 	 * @return string
 	 */
-	static public function titre($oiseau, $qualite) {
-		return $oiseau.', '.$qualite.' '.$oiseau;
+	public function titre() {
+		return $this->oiseau.', '.$this->qualite.' '.$this->oiseau;
 	}
 	/** Méthode chanson
 	 * Retourne la chanson au complet dans un div.chanson
@@ -18,13 +31,13 @@ class Alouette {
 	 * @uses strophe
 	 * @return string
 	 */
-	static public function chanson($oiseau, $qualite, $action, $membres) {
+	public function chanson() {
 		$resultat = '';
-		$membresDits = array();
+		$membresDits = [];
 		$resultat .= '<div class="chanson">';
-		foreach ($membres as $membre) {
+		foreach ($this->membres as $membre) {
 			array_unshift($membresDits, $membre);
-			$resultat .= Alouette::strophe($oiseau, $qualite, $action, $membre, $membresDits);
+			$resultat .= $this->strophe($membre, $membresDits);
 		}
 		$resultat .= '</div>';
 		return $resultat;
@@ -40,11 +53,11 @@ class Alouette {
 	 * @uses couplet
 	 * @return string
 	 */
-	static public function strophe($oiseau, $qualite, $action, $membre, $membresDits) {
+	public function strophe($membre, $membresDits) {
 		$resultat = '';
 		$resultat .= '<div class="strophe">';
-		$resultat .= self::refrain($oiseau, $qualite, $action);
-		$resultat .= self::couplet($oiseau, $action, $membre, $membresDits);
+		$resultat .= $this->refrain();
+		$resultat .= $this->couplet($membre, $membresDits);
 		$resultat .= '</div>';
 		return $resultat;
 	}
@@ -58,11 +71,11 @@ class Alouette {
 	 * @uses appelReponse
 	 * @return string
 	 */
-	static public function refrain($oiseau, $qualite, $action) {
+	public function refrain() {
 		$resultat = '';
-		$resultat .= '<div>'.self::titre($oiseau, $qualite).'</div>';
-		$resultat .= '<div>'.$oiseau.', je '.$action.'.'.'</div>';
-		$resultat = self::appelReponse($resultat);
+		$resultat .= '<div>'.$this->titre().'</div>';
+		$resultat .= '<div>'.$this->oiseau.', je '.$this->action.'.'.'</div>';
+		$resultat = $this->appelReponse($resultat);
 		$resultat = '<div class="refrain">'.$resultat.'</div>';
 		return $resultat;
 	}
@@ -78,11 +91,11 @@ class Alouette {
 	 * @return string
 	 * @note L'appel est dans un div.appel et la réponse, dans un div.reponse
 	 */
-	static public function couplet($oiseau, $action, $membre, $membresDits) {
+	public function couplet($membre, $membresDits) {
 		$resultat = '';
-		$resultat .= self::actionMembre($action, $membre);
-		$resultat .= self::enumMembres($membresDits);
-		$resultat .= self::appelReponse($oiseau);
+		$resultat .= $this->actionMembre($membre);
+		$resultat .= $this->enumMembres($membresDits);
+		$resultat .= $this->appelReponse($this->oiseau);
 		$resultat .= '<div>Aaaah . . . </div>';
 		return $resultat;
 	}
@@ -92,7 +105,7 @@ class Alouette {
 	 * @return string
 	 * @note L'appel est dans un div.appel et la réponse, dans un div.reponse
 	 */
-	static public function appelReponse($phrase) {
+	public function appelReponse($phrase) {
 		$resultat = '';
 		$resultat .= '<div class="appel">'.$phrase.'</div>';
 		$resultat .= '<div class="reponse">'.$phrase.'</div>';
@@ -104,10 +117,10 @@ class Alouette {
 	 * @uses appelReponse
 	 * @return string
 	 */
-	static public function enumMembres($membres) {
+	public function enumMembres($membres) {
 		$resultat = '';
 		foreach ($membres as $membre) {
-			$resultat .= self::appelReponse('Et '.$membre);
+			$resultat .= $this->appelReponse('Et '.$membre);
 		}
 		return $resultat;
 	}
@@ -118,40 +131,38 @@ class Alouette {
 	 * @uses appelReponse
 	 * @return string
 	 */
-	static public function actionMembre($action, $membre) {
-		$resultat = self::appelReponse('Je '.$action.' '.$membre);
+	public function actionMembre($membre) {
+		$resultat = $this->appelReponse('Je '.$this->action.' '.$membre);
 		return $resultat;
 	}
-	static public function form($donnees, $method="get", $action="") {
+	public function form($donnees, $method="get", $action="") {
 		$resultat = '';
 		$resultat .= '<form action="'.$action.'" method="'.$method.'">';
 		$resultat .= '<div class="champ">';
 		$resultat .= '<label for="oiseau">Oiseau</label>';
-		$resultat .= '<input type="text" name="oiseau" id="oiseau" value="'.$donnees['oiseau'].'"/>';
+		$resultat .= '<input type="text" name="oiseau" id="oiseau" value="'.$this->oiseau.'"/>';
 		$resultat .= '</div>';
 		$resultat .= '<div class="champ">';
 		$resultat .= '<label for="qualite">Qualité</label>';
-		$resultat .= '<input type="text" name="qualite" id="qualite" value="'.$donnees['qualite'].'"/>';
+		$resultat .= '<input type="text" name="qualite" id="qualite" value="'.$this->qualite.'"/>';
 		$resultat .= '</div>';
 		$resultat .= '<div class="champ">';
 		$resultat .= '<label for="action">Action</label>';
-		$resultat .= '<input type="text" name="action" id="action" value="'.$donnees['action'].'"/>';
+		$resultat .= '<input type="text" name="action" id="action" value="'.$this->action.'"/>';
 		$resultat .= '</div>';
 		$resultat .= '<div class="champ">';
 		$resultat .= '<label for="membres">Membres</label>';
 		// $membres = '';
-		// foreach($donnees['membres'] as $id => $membre) {
-			// 	$membres .= $membre."\r\n";
-			// }
-			$membres = implode("\r\n", $donnees['membres']);
-			$resultat .= '<textarea name="membres" id="membres" cols="20" rows="10">'.$membres.'</textarea>';
-			$resultat .= '</div>';
-			$resultat .= '<div class="submit">';
-			$resultat .= '<input type="hidden" name="composer"/>';
-			$resultat .= '<input type="submit" value="Composer"/>';
-			$resultat .= '</div>';
-			$resultat .= '</form>';
-			return $resultat;
-		}
-
+		// foreach($this->membres as $id => $membre) {
+		// 	$membres .= $membre."\r\n";
+		// }
+		$membres = implode("\r\n", $this->membres);
+		$resultat .= '<textarea name="membres" id="membres" cols="20" rows="10">'.$membres.'</textarea>';
+		$resultat .= '</div>';
+		$resultat .= '<div class="submit">';
+		$resultat .= '<input type="hidden" name="composer"/>';
+		$resultat .= '<input type="submit" value="Composer"/>';
+		$resultat .= '</form>';
+		return $resultat;
+	}
 }

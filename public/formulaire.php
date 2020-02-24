@@ -1,12 +1,6 @@
 <?php
 include "../donnees.inc.php";
 include "../Alouette.php";
-$donnees = [
-	'oiseau' => $oiseau,
-	'qualite' => $qualite,
-	'action' => $action,
-	'membres' => $membres,
-];
 $affichage = '';
 if (isset($_POST['composer'])) {
 	$oiseau = $_POST['oiseau'];
@@ -14,9 +8,10 @@ if (isset($_POST['composer'])) {
 	$action = $_POST['action'];
 	$membres = $_POST['membres'];
 	$membres = explode("\r\n", $membres);
-	$affichage .= Alouette::chanson($oiseau, $qualite, $action, $membres);
 }
-$affichage .= Alouette::form($donnees, "post");
+$chanson = new Alouette($oiseau, $qualite, $action, $membres);
+$affichage .= $chanson->chanson();
+$affichage .= $chanson->form("post");
 
 ?><!DOCTYPE html>
 <html lang="fr">

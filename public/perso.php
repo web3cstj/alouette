@@ -22,12 +22,14 @@ if (isset($_GET['qualite'])) {
 
 $action = isset($_GET['action']) ? $_GET['action'] : "te plumerai";
 
+$chanson = new Alouette($oiseau, $qualite, $action, $membres);
+
 ?><!DOCTYPE html>
 <html lang="fr">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="stylesheet" href="css/alouette.css" />
-		<title><?php echo Alouette::titre($oiseau, $qualite); ?></title>
+		<title><?php echo $chanson->titre(); ?></title>
 	</head>
 	<body>
         <div id="app">
@@ -35,8 +37,8 @@ $action = isset($_GET['action']) ? $_GET['action'] : "te plumerai";
             <?php include "../footer.inc.php"; ?>
             <?php include "../menu.inc.php"; ?>
     		<div class="body">
-                <h1><?php echo Alouette::titre($oiseau, $qualite); ?></h1>
-                <?php echo Alouette::chanson($oiseau, $qualite, $action, $membres); ?>
+                <h1><?php echo $chanson->titre(); ?></h1>
+                <?php echo $chanson->chanson(); ?>
             </div>
         </div>
 	</body>
