@@ -1,0 +1,98 @@
+:root {
+	--deletion-hue: 0;
+	--addition-hue: 120;
+	--marges: .5in;
+}
+@page {
+	size: 8.5in 11in;
+	margin: .5in;
+}
+body {
+	@media screen {
+		background-color: black;
+	}
+	@media print {
+		margin: 0;
+	}
+}
+.interface {
+	@media screen {
+		width: 8.5in;
+		padding: var(--marges);
+		box-sizing: border-box;
+		background-color: white;
+		margin: 0 auto;
+	}
+}
+col:nth-child(odd) {
+	width: 6ch;
+}
+table {
+	border-collapse: collapse;
+	font-family: monospace;
+	line-height: 1;
+	font-size: 8pt;
+	border: 1px solid #000;
+}
+thead {
+	background-color: black;
+	color: white;
+	font-size: 2.6em;
+	th:not(:first-child) {
+		border-left: 1px white solid;
+	}
+}
+tbody > tr:first-child {
+	background-color: hsl(0, 0%, 50%);
+	color: white;
+	font-size: 1.2em;
+}
+tr {
+	page-break-inside: avoid;
+}
+td {
+	// border: 1px solid black;
+	vertical-align: top;
+	&:nth-child(2) {
+		border-right: 1px solid #ccc;
+	}
+}
+.blob-num {
+	background-color: hsl(0, 0%, 90%);
+}
+tr[data-position] {
+	display: none;
+}
+.blob-code-deletion {
+	background-color: hsl(var(--deletion-hue), 100%, 90%);
+	.x {
+		background-color: hsl(var(--deletion-hue), 100%, 70%);
+	}
+}
+.blob-num {
+	quotes: " " " ";
+}
+.blob-num-deletion {
+	quotes: "\2212" "\2212";
+	background-color: hsl(var(--deletion-hue), 100%, 80%);
+}
+.blob-code-addition {
+	background-color: hsl(var(--addition-hue), 100%, 90%);
+	.x {
+		background-color: hsl(var(--addition-hue), 100%, 70%);
+	}
+}
+.blob-num-addition {
+	background-color: hsl(var(--addition-hue), 100%, 80%);
+	quotes: "＋" "＋";
+}
+[data-line-number] {
+	text-align: right;
+	&::after {
+		content: attr(data-line-number);
+	}
+	&::before {
+		content: open-quote;
+		float: left;
+	}
+}
