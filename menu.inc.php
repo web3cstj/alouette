@@ -2,8 +2,8 @@
 function menu() {
 	$elements = [
 		'Alouette' => 'index.php',
-		'Ma chanson 1' => '#',
-		'Ma chanson 2' => '#',
+		'Corbeau' => 'corbeau.php',
+		'Pie' => 'pie.php',
 		'Ma chanson<br/>à moi' => 'perso.php',
 		'Composer<br/>ma chanson' => 'formulaire.php',
 	];
