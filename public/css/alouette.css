@@ -150,6 +150,8 @@ div.body div.strophe {
   padding: 1em;
   border-radius: 0.5em;
   margin: 1em 0;
+  -ms-flex-item-align: center;
+      align-self: center;
 }
 div.body div.refrain {
   font-weight: bold;
@@ -159,15 +161,24 @@ div.body div.reponse {
   font-family: "Great Vibes", cursive;
 }
 
+.cadre {
+  background-color: hsl(var(--hue), 100%, 90%);
+  padding: 1em;
+  border-radius: 0.5em;
+  margin: 1em 0;
+  -ms-flex-item-align: center;
+      align-self: center;
+}
+
 form {
   background-color: hsl(var(--hue), 100%, 90%);
   padding: 1em;
   border-radius: 0.5em;
   margin: 1em 0;
+  align-self: center;
   display: grid;
   grid-template-columns: -webkit-min-content 1fr;
   grid-template-columns: min-content 1fr;
-  align-self: center;
   grid-gap: 1em;
 }
 form > div {
@@ -178,4 +189,4 @@ form input[type=submit] {
   justify-self: center;
   grid-column: span 2;
 }
-/*# sourceMappingURL=to.css.map */
+/*# sourceMappingURL=alouette.css.map */

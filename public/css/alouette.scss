@@ -53,6 +53,7 @@ body {
 	padding: 1em;
 	border-radius: .5em;
 	margin: 1em 0;
+	align-self: center;
 }
 div.body {
 	display: flex;
@@ -78,11 +79,13 @@ div.body {
 		font-family: 'Great Vibes', cursive;
 	}
 }
- form {
+.cadre {
+	@include cadre;
+}
+form {
 	 @include cadre;
 	 display: grid;
 	 grid-template-columns: min-content 1fr;
-	 align-self: center;
 	 grid-gap: 1em;
 	 & > div {
 		 display: contents;
