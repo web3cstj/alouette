@@ -17,14 +17,27 @@ $affichage = '';
             <?php include "../footer.inc.php"; ?>
             <?php include "../menu.inc.php"; ?>
     		<div class="body">
-				<h1>Les chansons</h1>
-				<ul class="cadre">
-					<li><a href="corbeau.php?id=1">Gentille Alouette, je te plumerai</a></li>
-					<li><a href="corbeau.php?id=3">Maître Corbeau, je vous charmerai</a></li>
-					<li><a href="corbeau.php?id=2">Voleuse Pie, je te pendrai</a></li>
-				</ul>
-				<?php echo $affichage; ?>
-            </div>
-        </div>
+    			<h1>Les chansons</h1>
+    			<div class="cadre">
+    				<table>
+    					<tr>
+    						<th>
+    							<a href="corbeau.php?id=1">Gentille Alouette, je te plumerai</a>
+    						</th>
+    					</tr>
+    					<tr>
+    						<th>
+    							<a href="corbeau.php?id=3">Maître Corbeau, je vous charmerai</a>
+    						</th>
+    					</tr>
+    					<tr>
+    						<th>
+    							<a href="corbeau.php?id=2">Voleuse Pie, je te pendrai</a>
+    						</th>
+    					</tr>
+    				</table>
+    			</div>
+    			<?php echo $affichage; ?>
+    		</div>        </div>
 	</body>
 </html>
